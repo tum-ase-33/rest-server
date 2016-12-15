@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisioDocument>
+	<DocumentProperties>
+		<Title></Title>
+		<HyperlinkBase href=""></HyperlinkBase>
+	</DocumentProperties>
+	<Pages>
+		<Page ID="0" Name="Registration successful with not existing user" NameU="Registration successful">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="1" UniqueID="{46E95FCF-28B6-4F80-833D-1E10F3D17A60}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">0.984251954859031</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="6" UniqueID="{84EF8825-CAA5-422F-9ED0-D81D5E41B5EC}" Name="Akteur-Lebenslinie.6" NameU="Actor lifeline.6" Master="7">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">3.654165054675972</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="12" UniqueID="{17D95DB5-8258-49D7-9972-A2AB6608EAAB}" Name="Akteur-Lebenslinie.12" NameU="Actor lifeline.12" Master="7">
+					<Text>SP-Provider</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492911</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="17" UniqueID="{C9C8AF31-A219-4CC7-963E-0008A0DA4233}" Name="Akteur-Lebenslinie.17" NameU="Actor lifeline.17" Master="7">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">8.993991254309851</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="22" UniqueID="{8B0DB66D-73E9-402D-A166-695A712C087F}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Selects university</Text>
+					<XForm>
+						<PinX Unit="MM">2.319208504767501</PinX>
+						<PinY Unit="MM">6.804966589242894</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{F3469416-B8DA-4E5B-B184-B1D74F381699}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Redirects to SSO Auth Form</Text>
+					<XForm>
+						<PinX Unit="MM">3.654165054675972</PinX>
+						<PinY Unit="MM">6.450635880581476</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="25" UniqueID="{86787749-0250-4051-AA4C-2F9627A40782}" Name="Nachricht.25" NameU="Message.25" Master="8">
+					<Text>Enters credentials</Text>
+					<XForm>
+						<PinX Unit="MM">2.319208504767501</PinX>
+						<PinY Unit="MM">6.056935093179901</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="26" UniqueID="{93DAAA19-AB45-4991-8612-13A69CF289BA}" Name="Nachricht.26" NameU="Message.26" Master="8">
+					<Text>Proof credentials</Text>
+					<XForm>
+						<PinX Unit="MM">4.989121604584441</PinX>
+						<PinY Unit="MM">5.860084699479114</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="27" UniqueID="{400E00B8-47F1-4896-8183-E1B5363D39BF}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Credentials ok or not</Text>
+					<XForm>
+						<PinX Unit="MM">4.989121604584441</PinX>
+						<PinY Unit="MM">5.466383912077539</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="28" UniqueID="{68948306-3110-4941-9A81-A327C31342E1}" Name="Nachricht.28" NameU="Message.28" Master="8">
+					<Text>Create account</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492911</PinX>
+						<PinY Unit="MM">5.072683124675964</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="29" UniqueID="{5A90665D-D460-4BD5-A075-18DBE6CE3FD1}" Name="Antwortnachricht.29" NameU="Return Message.29" Master="10">
+					<Text>Account created</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492911</PinX>
+						<PinY Unit="MM">4.797092573494862</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="30" UniqueID="{15778C39-7F53-40AD-BD30-0281B1872BF3}" Name="Self-Nachricht.30" NameU="Self Message.30" Master="9">
+					<Text>Show dashboard</Text>
+					<XForm>
+						<PinX Unit="MM">3.654165054675972</PinX>
+						<PinY Unit="MM">3.990005959321634</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="38" UniqueID="{4C08F621-CD92-4A22-AFC0-E9A14DDE16C7}" Name="Antwortnachricht.38" NameU="Return Message.38" Master="10">
+					<Text>Show dashboard</Text>
+					<XForm>
+						<PinX Unit="MM">2.319208504767501</PinX>
+						<PinY Unit="MM">3.773470526250768</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="39" UniqueID="{42DD4677-1A49-419B-B568-BC3C1C34BBE3}" Name="Schleifenfragment" NameU="Loop fragment" Master="11">
+					<Text>Credentials ok</Text>
+					<XForm>
+						<PinX Unit="MM">3.513779649767147</PinX>
+						<PinY Unit="MM">5.777559256059705</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="42" UniqueID="{EFD49945-4193-48F9-B8BA-235E1788DF62}" Name="Nachricht.42" NameU="Message.42" Master="8">
+					<Text>Login</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492911</PinX>
+						<PinY Unit="MM">4.482131943573602</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="43" UniqueID="{E52E777C-8B28-47F4-A89F-01A9D5746AAB}" Name="Antwortnachricht.43" NameU="Return Message.43" Master="10">
+					<Text>Login successful</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492911</PinX>
+						<PinY Unit="MM">4.285281549872815</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="5" Name="Registration with existing user" NameU="Registration with existing user">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="1" UniqueID="{75BD2E7C-2E4B-4C50-879D-B6D829E277CA}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">0.984251954859031</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="6" UniqueID="{2AEA1CA7-5E3D-43E3-B1CE-2E45E591520A}" Name="Akteur-Lebenslinie.6" NameU="Actor lifeline.6" Master="7">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">3.654165054675971</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="12" UniqueID="{3DCC7A0F-3BF7-4BAD-B98E-385E69C218FB}" Name="Akteur-Lebenslinie.12" NameU="Actor lifeline.12" Master="7">
+					<Text>SP-Provider</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492911</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="17" UniqueID="{EE600A62-2547-46E9-B79F-785DC17FEDAE}" Name="Akteur-Lebenslinie.17" NameU="Actor lifeline.17" Master="7">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">8.993991254309853</PinX>
+						<PinY Unit="MM">7.218352416014547</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="22" UniqueID="{ED2192E5-F3C9-4BF5-8515-FE552B12A378}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Selects university</Text>
+					<XForm>
+						<PinX Unit="MM">2.319208504767501</PinX>
+						<PinY Unit="MM">6.804966589242894</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{CC1022AC-731E-4EE9-BF08-AE7CE4F97328}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Redirects to SSO Auth Form</Text>
+					<XForm>
+						<PinX Unit="MM">3.654165054675971</PinX>
+						<PinY Unit="MM">6.450635880581476</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="25" UniqueID="{85545D50-E9C6-456D-BCAC-8B817F7B9936}" Name="Nachricht.25" NameU="Message.25" Master="8">
+					<Text>Enters credentials</Text>
+					<XForm>
+						<PinX Unit="MM">2.319208504767501</PinX>
+						<PinY Unit="MM">6.102362348498635</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="26" UniqueID="{00B2AB3D-B21C-4FFE-8374-80F7E4B339BC}" Name="Nachricht.26" NameU="Message.26" Master="8">
+					<Text>Proof credentials</Text>
+					<XForm>
+						<PinX Unit="MM">4.989121604584441</PinX>
+						<PinY Unit="MM">5.905511954797848</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="27" UniqueID="{58A5E8A0-A745-4021-996C-05404D3AEF4A}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Credentials ok or not</Text>
+					<XForm>
+						<PinX Unit="MM">4.989121604584441</PinX>
+						<PinY Unit="MM">5.511811167396273</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="28" UniqueID="{C987A3D2-5EA3-4A59-9627-D212288EEC5A}" Name="Nachricht.28" NameU="Message.28" Master="8">
+					<Text>Create account</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492912</PinX>
+						<PinY Unit="MM">5.118110379994698</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="29" UniqueID="{8046F844-343D-4AC2-91E9-3D8D0ADA44A2}" Name="Antwortnachricht.29" NameU="Return Message.29" Master="10">
+					<Text>Authenticated, but account still exists</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492912</PinX>
+						<PinY Unit="MM">4.842519828813595</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="30" UniqueID="{A2C29F01-D004-4DDA-9A00-7266CF43B231}" Name="Self-Nachricht.30" NameU="Self Message.30" Master="9">
+					<Text>Show dashboard</Text>
+					<XForm>
+						<PinX Unit="MM">3.654165054675971</PinX>
+						<PinY Unit="MM">3.930950841211398</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="38" UniqueID="{FF20B2CA-772D-4957-A750-4E4B3FDBA7A9}" Name="Antwortnachricht.38" NameU="Return Message.38" Master="10">
+					<Text>Show dashboard</Text>
+					<XForm>
+						<PinX Unit="MM">2.319208504767501</PinX>
+						<PinY Unit="MM">3.497879975069665</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="39" UniqueID="{FDDBA82E-55BD-431F-BC46-61EC73392C24}" Name="Schleifenfragment" NameU="Loop fragment" Master="11">
+					<Text>Credentials ok</Text>
+					<XForm>
+						<PinX Unit="MM">3.513779649767147</PinX>
+						<PinY Unit="MM">5.777559256059705</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="42" UniqueID="{9581B569-3596-49CE-990C-70E7D39B4AC3}" Name="Nachricht.42" NameU="Message.42" Master="8">
+					<Text>Login</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492912</PinX>
+						<PinY Unit="MM">4.482131943573602</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="43" UniqueID="{10048BB0-638A-4613-977C-152B98850DDF}" Name="Antwortnachricht.43" NameU="Return Message.43" Master="10">
+					<Text>Login successful</Text>
+					<XForm>
+						<PinX Unit="MM">6.324078154492912</PinX>
+						<PinY Unit="MM">4.285281549872815</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="4" Name="User-Dashboard" NameU="Page-3">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="6" UniqueID="{66B2F9B8-8084-4114-98EC-41DD41D457DB}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">1.220472410843393</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{8900BDF1-444D-458A-80A5-001C2227A5AB}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{C076FDA6-5351-421F-9210-FD428F3913E9}" Name="Objektlebenslinie.16" NameU="Object lifeline.16" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="21" UniqueID="{D08010A4-C0CE-42F5-B451-D7938ED90FF9}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Enter dashboard</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">6.673228210999993</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{8321B714-3B89-4584-ADDB-D6FD13149AA1}" Name="Nachricht.22" NameU="Message.22" Master="8">
+					<Text>Fetch assigned lessons</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.437007738559048</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="23" UniqueID="{48E7B77C-05FC-48B2-A1AF-4D0F8259FF81}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Return assigned lesson list</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.200787266118104</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{57207185-0FFD-4843-878B-D4B4E82D2A98}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Render lesson list</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">5.826771518086607</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="10" Name="Assign lesson group" NameU="Assign group">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="6" UniqueID="{8A9B0F39-9D45-4E1A-A5D3-0E90D566376D}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">1.220472410843393</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{3B5EECA2-DDFE-4B3E-83AF-D7D8789A17C9}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{20D62AC1-A16B-42E2-809E-AEC8F44DC8F1}" Name="Objektlebenslinie.16" NameU="Object lifeline.16" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="21" UniqueID="{5D66B2BD-5785-403B-B923-E3CCAC8CCC30}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Open sign lesson form</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">6.673228210999993</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{18C41655-11E6-4E06-9635-64272C8EEA3F}" Name="Nachricht.22" NameU="Message.22" Master="8">
+					<Text>Fetch lessons</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.437007738559048</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="23" UniqueID="{94CDC6D9-951C-461F-823F-A9BBF3C71C2F}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Return lesson list</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.200787266118104</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{D293B5A2-D673-45AE-9D98-C5D1B70D156D}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Render lesson list</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">5.826771518086607</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="25" UniqueID="{65F020A6-C549-4343-AABC-CAC838CB06CF}" Name="Nachricht.25" NameU="Message.25" Master="8">
+					<Text>Select lesson</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">5.334645533834639</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="26" UniqueID="{6DCC823A-EAAD-4766-A22F-B284B001A256}" Name="Nachricht.26" NameU="Message.26" Master="8">
+					<Text>Fetch lesson groups</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">5.137795140133852</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="27" UniqueID="{D23C1BA5-1E5D-46F0-BF49-CB3B2BB6D5A7}" Name="Antwortnachricht.27" NameU="Return Message.27" Master="10">
+					<Text>Return groups</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">4.940944746433064</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="28" UniqueID="{25D51FD2-DAAB-42D1-A7E1-BC55DDF81E80}" Name="Nachricht.28" NameU="Message.28" Master="8">
+					<Text>Select group</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">4.153543171629915</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="29" UniqueID="{070E776A-F7A7-49FA-B2A7-BB13B2A3A438}" Name="Self-Nachricht.29" NameU="Self Message.29" Master="9">
+					<Text>Render lesson groups</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">4.507873880291331</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="30" UniqueID="{5CC77277-73E9-4E3D-A61E-00B7837E23CE}" Name="Nachricht.30" NameU="Message.30" Master="8">
+					<Text>Assign group</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">3.956692777929127</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="31" UniqueID="{51F4987D-D4B3-4E6D-AB9F-FC298533B8D2}" Name="Antwortnachricht.31" NameU="Return Message.31" Master="10">
+					<Text>Assign group successful</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">3.641732148007867</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="32" UniqueID="{9D205EFF-DC6B-446C-A3C4-39522FFB44DF}" Name="Self-Nachricht.32" NameU="Self Message.32" Master="9">
+					<Text>Redirect to dashboard</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">3.267716399976371</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="7" Name="Create-Lesson-Success" NameU="User-Dashboard-Create-Lesson">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="6" UniqueID="{05520BAE-0B25-4796-B081-4EC66C76923E}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">1.220472410843393</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{60C039AC-8695-4A1A-8E64-DA3CA986B8BA}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{2C71486F-1D9C-498E-961F-89B398943FE4}" Name="Objektlebenslinie.16" NameU="Object lifeline.16" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="21" UniqueID="{395E20E7-43D5-4D4B-B935-DF330F2A9A9C}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Open Add Lesson Page</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">6.673228210999993</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{CAB3D0F4-4FE1-4A33-9530-FACE8AFABE3B}" Name="Nachricht.22" NameU="Message.22" Master="8">
+					<Text>Check if admin right</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.437007738559048</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="23" UniqueID="{DF62D799-B3C2-47F8-9078-DA3E86F54A82}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Authorization successful</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.200787266118104</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{D7C8B1C0-C3B0-41C8-85DF-33C0E39CB0D7}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Render lessons form</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">5.826771518086607</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="25" UniqueID="{83067571-F374-4CCE-9F12-AD103F21096E}" Name="Nachricht.25" NameU="Message.25" Master="8">
+					<Text>Enter lesson data</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">5.334645533834639</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="26" UniqueID="{849B3E3B-1497-4AC6-9676-F2A9E4C2D7BF}" Name="Self-Nachricht.26" NameU="Self Message.26" Master="9">
+					<Text>Validate</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">5.039369943283457</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="27" UniqueID="{BC97FBD7-5A2C-48AD-98BC-27BBF120E999}" Name="Schleifenfragment" NameU="Loop fragment" Master="11">
+					<Text>Valid input</Text>
+					<XForm>
+						<PinX Unit="MM">2.750000121318061</PinX>
+						<PinY Unit="MM">4.801595657009627</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="30" UniqueID="{A1D437AE-4F8F-43DB-A864-2F7CE228FA46}" Name="Antwortnachricht.30" NameU="Return Message.30" Master="10">
+					<Text>Validation state</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">4.153543171629915</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="31" UniqueID="{F2C024CE-C34D-40F3-8056-E7E1F16CE37F}" Name="Nachricht.31" NameU="Message.31" Master="8">
+					<Text>Create lesson</Text>
+					<XForm>
+						<PinX Unit="MM">3.807086716869104</PinX>
+						<PinY Unit="MM">3.864484179163042</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="32" UniqueID="{07F795BB-348C-4CC1-B222-FE4A50CABBCC}" Name="Antwortnachricht.32" NameU="Return Message.32" Master="10">
+					<Text>Lesson created</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">3.169291203125977</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="34" UniqueID="{057CBEA2-6F2C-4D64-8FB7-3D731489AE6E}" Name="Nachricht.34" NameU="Message.34" Master="8">
+					<Text>Check unique fields</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">4.665354195251961</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="35" UniqueID="{6ED58245-6F1B-450C-9E61-1DC379F24610}" Name="Antwortnachricht.35" NameU="Return Message.35" Master="10">
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">4.350393565330702</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="36" UniqueID="{187C7333-E63D-4DBE-89A6-7432553762DE}" Name="Self-Nachricht.36" NameU="Self Message.36" Master="9">
+					<Text>Redirect to lesson list</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">2.814960494464560</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="37" UniqueID="{476C67E6-FD20-4EB5-877A-978BE1476657}" Name="Antwortnachricht.37" NameU="Return Message.37" Master="10">
+					<Text>Created notification</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">2.381889628322828</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="38" UniqueID="{0F258C94-60DC-4988-A193-8FD3E04E3692}" Name="Self-Nachricht.40" NameU="Self Message.40" Master="9">
+					<Text>Validate</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">3.503936872417316</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="8" Name="Create-Lesson-Unauthorized" NameU="User-Dashboard-Create-Lession-Missing-Rights">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="6" UniqueID="{C6D5CC45-3BFB-4538-B291-E4495FC62ACF}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">1.220472410843393</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{3A38FA50-BF69-4951-AABC-677C03B5EBB7}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{28BB54BB-1E52-49E3-B98A-171A4B77D503}" Name="Objektlebenslinie.16" NameU="Object lifeline.16" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="21" UniqueID="{96B61644-A5FC-4150-86E0-FE020BA43989}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Open Add Lesson Page</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">6.673228210999993</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{8E09EC6F-B143-414B-8522-12516F523560}" Name="Nachricht.22" NameU="Message.22" Master="8">
+					<Text>Check if admin right</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.437007738559048</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="23" UniqueID="{3A8667CD-2882-42C5-B51F-4B43C4F06749}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Authorization failed</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.200787266118104</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{7142413D-A9D5-4E09-A71D-87426CAC7E25}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Redirect to home</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">5.826771518086607</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="9" Name="Modify-Lesson-Success" NameU="Modify-Lesson-Success">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="6" UniqueID="{15BE36B7-D355-4016-A6CE-3983B78687C9}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>User</Text>
+					<XForm>
+						<PinX Unit="MM">1.220472410843393</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{89D71FAD-1FF6-4390-BC85-6A1ED3E33A70}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Webapp</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{B2634C7A-26D4-405A-9B8D-90389E8343BD}" Name="Objektlebenslinie.16" NameU="Object lifeline.16" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">7.086614037771646</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="21" UniqueID="{F9DCCDBD-657F-4AF3-A49A-2648B31164C9}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Open Modify Lesson Page</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">6.673228210999993</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{46E7C0BF-FF60-4FBE-9DFF-420DB884DF55}" Name="Nachricht.22" NameU="Message.22" Master="8">
+					<Text>Check if admin right and/or owner</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.437007738559048</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="23" UniqueID="{3EE61B21-BC32-4A1C-9D37-ED33CC882D35}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Authorization successful</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">6.200787266118104</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{28791885-0ED8-4397-A563-322E6EBA1499}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Render lessons form</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">5.413385915774746</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="25" UniqueID="{0C5158E7-75B4-4B4E-A991-2996E6903889}" Name="Nachricht.25" NameU="Message.25" Master="8">
+					<Text>Enter lesson data</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">4.921259931522777</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="26" UniqueID="{3AE67218-95E6-4318-A9C3-4C16914C7C8D}" Name="Self-Nachricht.26" NameU="Self Message.26" Master="9">
+					<Text>Validate</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">4.625984340971597</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="27" UniqueID="{028F3E49-F7C1-48E8-80D1-ADBC33DC32CE}" Name="Schleifenfragment" NameU="Loop fragment" Master="11">
+					<Text>Valid input</Text>
+					<XForm>
+						<PinX Unit="MM">2.750000121318061</PinX>
+						<PinY Unit="MM">4.388210054697765</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="30" UniqueID="{C6CB3FBC-BA7C-4602-942A-7F089D7E6FF1}" Name="Antwortnachricht.30" NameU="Return Message.30" Master="10">
+					<Text>Validation state</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">3.740157569318053</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="31" UniqueID="{C97D90D9-171A-440D-8ED1-229E8D5071B7}" Name="Nachricht.31" NameU="Message.31" Master="8">
+					<Text>Modify Lesson</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">3.366141596826765</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="32" UniqueID="{C7F363E4-7149-4C56-9591-4328963AF2AB}" Name="Antwortnachricht.32" NameU="Return Message.32" Master="10">
+					<Text>Lesson modified</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">2.657480179503930</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="34" UniqueID="{FEC6FAA4-A703-4EB7-B139-26C51DDA49DF}" Name="Nachricht.34" NameU="Message.34" Master="8">
+					<Text>Check unique fields</Text>
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">4.251968592940099</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="35" UniqueID="{87AE6640-66E6-4813-A25B-F9B416A39976}" Name="Antwortnachricht.35" NameU="Return Message.35" Master="10">
+					<XForm>
+						<PinX Unit="MM">3.783464536827645</PinX>
+						<PinY Unit="MM">3.937007963018840</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="36" UniqueID="{22E42847-5A41-44A3-B087-11F58673A212}" Name="Self-Nachricht.36" NameU="Self Message.36" Master="9">
+					<Text>Redirect to lesson list</Text>
+					<XForm>
+						<PinX Unit="MM">2.929133828166227</PinX>
+						<PinY Unit="MM">2.263779392102355</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="37" UniqueID="{9EAE838B-CAA1-43C4-B2FD-8C41958CA6F3}" Name="Antwortnachricht.37" NameU="Return Message.37" Master="10">
+					<Text>Created notification</Text>
+					<XForm>
+						<PinX Unit="MM">2.074803119504810</PinX>
+						<PinY Unit="MM">1.988188840921253</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="38" UniqueID="{A3E9983D-34F8-4C63-89B2-1E2FC937FB28}" Name="Nachricht.38" NameU="Message.38" Master="8">
+					<Text>Fetch lesson data</Text>
+					<XForm>
+						<PinX Unit="MM">3.770824800978834</PinX>
+						<PinY Unit="MM">5.905512016415372</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="39" UniqueID="{F192D268-9EDC-45A1-BBCC-7CE519779C49}" Name="Antwortnachricht.39" NameU="Return Message.39" Master="10">
+					<Text>Return lesson data</Text>
+					<XForm>
+						<PinX Unit="MM">3.770824800978834</PinX>
+						<PinY Unit="MM">5.669291543974428</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="40" UniqueID="{68251FF9-25FF-4594-A381-1E76851FBA3B}" Name="Self-Nachricht.40" NameU="Self Message.40" Master="9">
+					<Text>Validate</Text>
+					<XForm>
+						<PinX Unit="MM">4.637795245489063</PinX>
+						<PinY Unit="MM">3.070866006275583</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="11" Name="Token schedueler" NameU="Token schedueler">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="1" UniqueID="{F00D007B-2E71-4E92-830F-0EEA6A60814E}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Schedueler</Text>
+					<XForm>
+						<PinX Unit="MM">1.279527577891183</PinX>
+						<PinY Unit="MM">7.263779392102355</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="6" UniqueID="{04D2D6E2-B09C-42E2-B9E5-A69FFD060CE8}" Name="Objektlebenslinie.6" NameU="Object lifeline.6" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">3.779527702829343</PinX>
+						<PinY Unit="MM">7.263779392102355</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{8A97234C-2460-4A7B-9451-B4B4AA85582F}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Activate "Send Tokens" task</Text>
+					<XForm>
+						<PinX Unit="MM">2.529527640360263</PinX>
+						<PinY Unit="MM">6.850393565330702</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="12" UniqueID="{FD4504A8-E344-4F43-9D84-D787DFC5EE0E}" Name="Objektlebenslinie.12" NameU="Object lifeline.12" Master="12">
+					<Text>Mail Sender</Text>
+					<XForm>
+						<PinX Unit="MM">6.319105080835898</PinX>
+						<PinY Unit="MM">7.263779392102355</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="17" UniqueID="{64399BCC-45B6-4569-AFF4-C52414566DE1}" Name="Schleifenfragment" NameU="Loop fragment" Master="11">
+					<Text>All students and their lessons</Text>
+					<XForm>
+						<PinX Unit="MM">4.886034101180991</PinX>
+						<PinY Unit="MM">5.133443839572895</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="20" UniqueID="{6A9E2137-5EB2-496D-8BA2-4403DE86FDF8}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Load students and their lessons</Text>
+					<XForm>
+						<PinX Unit="MM">3.779527702829343</PinX>
+						<PinY Unit="MM">6.496062856669285</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="21" UniqueID="{6F603EC1-4976-47C4-B347-0EA074D32315}" Name="Nachricht.21" NameU="Message.21" Master="8">
+					<Text>Send body with QR code</Text>
+					<XForm>
+						<PinX Unit="MM">5.049316391832621</PinX>
+						<PinY Unit="MM">4.527558919661411</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{33DD46F3-4588-4DDA-9927-DE0FDEB61B94}" Name="Self-Nachricht.22" NameU="Self Message.22" Master="9">
+					<Text>Create token</Text>
+					<XForm>
+						<PinX Unit="MM">3.779527702829343</PinX>
+						<PinY Unit="MM">5.413385691314954</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="23" UniqueID="{B575E76B-DC0E-475C-8DF9-74879A81AC76}" Name="Self-Nachricht.23" NameU="Self Message.23" Master="9">
+					<Text>Encrypt token as QR code</Text>
+					<XForm>
+						<PinX Unit="MM">3.779527702829343</PinX>
+						<PinY Unit="MM">5.019684903913380</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{223E9708-9136-4C1F-8A3C-20C41986EBF6}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>Sending successful</Text>
+					<XForm>
+						<PinX Unit="MM">5.049316391832621</PinX>
+						<PinY Unit="MM">4.330708525960623</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="25" UniqueID="{C7954647-5306-4331-B2EC-AAD8D1869881}" Name="Antwortnachricht.25" NameU="Return Message.25" Master="10">
+					<Text>Finished</Text>
+					<XForm>
+						<PinX Unit="MM">2.529527640360263</PinX>
+						<PinY Unit="MM">3.818897502338576</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+		<Page ID="12" Name="Rasp Pi" NameU="Rasp Pi">
+			<PageProps>
+				<PageScale Unit="MM">0.039370078740157</PageScale>
+				<DrawingScale Unit="MM">0.039370078740157</DrawingScale>
+			</PageProps>
+			<Layer IX="0">
+				<Name>Verbinder</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="1" UniqueID="{417F9004-F3F0-42BE-A416-C7EBE935B53C}" Name="Akteur-Lebenslinie" NameU="Actor lifeline" Master="7">
+					<Text>Tutor</Text>
+					<XForm>
+						<PinX Unit="MM">1.141732268413822</PinX>
+						<PinY Unit="MM">6.977451552192390</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="6" UniqueID="{54F567E0-F94E-40D0-B8C2-CEDDEA5B8E6B}" Name="Akteur-Lebenslinie.6" NameU="Actor lifeline.6" Master="7">
+					<Text>Student</Text>
+					<XForm>
+						<PinX Unit="MM">4.094488319057819</PinX>
+						<PinY Unit="MM">6.977451552192390</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="11" UniqueID="{CBBC2EDB-D086-47D3-A21C-C8A9DA7DFF75}" Name="Objektlebenslinie" NameU="Object lifeline" Master="12">
+					<Text>Rasp. Pi</Text>
+					<XForm>
+						<PinX Unit="MM">2.618110293735821</PinX>
+						<PinY Unit="MM">6.977451552192390</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{B11BF1EE-2336-499D-B119-13D648FFC6EC}" Name="Nachricht" NameU="Message" Master="8">
+					<Text>Switch on</Text>
+					<XForm>
+						<PinX Unit="MM">1.879921281074822</PinX>
+						<PinY Unit="MM">6.564065725420737</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="18" UniqueID="{58BBC7DF-3281-4B19-A0FC-91842BBB25E0}" Name="Antwortnachricht" NameU="Return Message" Master="10">
+					<Text>System booted</Text>
+					<XForm>
+						<PinX Unit="MM">1.879921281074822</PinX>
+						<PinY Unit="MM">6.327845252979792</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="19" UniqueID="{D91EC01B-5343-483E-99FD-8DA1DDC36BD1}" Name="Nachricht.19" NameU="Message.19" Master="8">
+					<Text>Lesson Group QR code</Text>
+					<XForm>
+						<PinX Unit="MM">1.879921281074822</PinX>
+						<PinY Unit="MM">6.091624780538847</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="20" UniqueID="{8FA0C20D-E14D-4304-9C82-5E42D4D8793E}" Name="Antwortnachricht.20" NameU="Return Message.20" Master="10">
+					<Text>lesson group set</Text>
+					<XForm>
+						<PinX Unit="MM">1.879921281074822</PinX>
+						<PinY Unit="MM">5.225483048255382</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="21" UniqueID="{A20D96D3-4FF9-4A3D-8050-30A0D4EB8FD7}" Name="Nachricht.21" NameU="Message.21" Master="8">
+					<Text>Student QR code</Text>
+					<XForm>
+						<PinX Unit="MM">3.356299306396820</PinX>
+						<PinY Unit="MM">4.556191709672705</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="22" UniqueID="{A4AE835A-AED1-4BA5-8F92-3A1ECD3F5816}" Name="Self-Nachricht" NameU="Self Message" Master="9">
+					<Text>Validate QR code</Text>
+					<XForm>
+						<PinX Unit="MM">2.618110293735821</PinX>
+						<PinY Unit="MM">5.717609032507351</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="24" UniqueID="{F8C651DE-6D2C-4909-9CB3-A83F5869EF02}" Name="Objektlebenslinie.24" NameU="Object lifeline.24" Master="12">
+					<Text>Server</Text>
+					<XForm>
+						<PinX Unit="MM">5.570866344379819</PinX>
+						<PinY Unit="MM">6.977451552192390</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="29" UniqueID="{AD6BD128-73FD-4A3B-942B-05D9603F022F}" Name="Nachricht.29" NameU="Message.29" Master="8">
+					<Text>Mark token as used</Text>
+					<XForm>
+						<PinX Unit="MM">4.094488319057820</PinX>
+						<PinY Unit="MM">4.241231079751445</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="30" UniqueID="{B4702C96-0182-438A-9AE1-86773430AC32}" Name="Self-Nachricht.30" NameU="Self Message.30" Master="9">
+					<Text>Validate</Text>
+					<XForm>
+						<PinX Unit="MM">5.570866344379819</PinX>
+						<PinY Unit="MM">3.945955489200264</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="31" UniqueID="{D3F74328-5736-4107-A174-66A678E7AEBB}" Name="Antwortnachricht.31" NameU="Return Message.31" Master="10">
+					<Text>Mark token accepted or not</Text>
+					<XForm>
+						<PinX Unit="MM">4.094488319057820</PinX>
+						<PinY Unit="MM">3.060128717546721</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="32" UniqueID="{D3C2BB7A-7618-4433-BBFA-D4F41C616129}" Name="Schleifenfragment" NameU="Loop fragment" Master="11">
+					<Text>New token received</Text>
+					<XForm>
+						<PinX Unit="MM">4.298798326054502</PinX>
+						<PinY Unit="MM">3.939908929982845</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="35" UniqueID="{E0179161-2197-440B-82BB-FAF441D3A8C4}" Name="Self-Nachricht.35" NameU="Self Message.35" Master="9">
+					<Text>Store if valid</Text>
+					<XForm>
+						<PinX Unit="MM">5.570866344379819</PinX>
+						<PinY Unit="MM">3.394774386838059</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+			</Shapes>
+		</Page>
+	</Pages>
+</VisioDocument>
