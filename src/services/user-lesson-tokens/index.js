@@ -1,7 +1,7 @@
 'use strict';
 
 const service = require('feathers-mongoose');
-const user-lesson-tokens = require('./user-lesson-tokens-model');
+const userLessonTokens = require('./user-lesson-tokens-model');
 const hooks = require('./hooks');
 
 module.exports = function() {
@@ -19,7 +19,7 @@ module.exports = function() {
   app.use('/user-lesson-tokens', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const user-lesson-tokensService = app.service('/user-lesson-tokens');
+  const userLessonTokensService = app.service('/user-lesson-tokens');
 
   // Set up our before hooks
   user-lesson-tokensService.before(hooks.before);
