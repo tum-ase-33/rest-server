@@ -10,6 +10,7 @@ module.exports = function() {
   // handling middleware should go last.
   const app = this;
 
+  app.use('/signUp', );
   app.use(notFound());
   app.use(logger(app));
   app.use(handler());
