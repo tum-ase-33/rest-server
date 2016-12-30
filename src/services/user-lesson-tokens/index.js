@@ -1,7 +1,7 @@
 'use strict';
 
 const service = require('feathers-mongoose');
-const userLessonTokens = require('./user-lesson-tokens-model');
+const userLessonTokens = require('./UserLessonTokens-model');
 const hooks = require('./hooks');
 
 module.exports = function() {
