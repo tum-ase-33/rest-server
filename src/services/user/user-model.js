@@ -1,6 +1,6 @@
 'use strict';
 
-// users-model.js - A mongoose model
+// user-model.js - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
@@ -8,15 +8,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const usersSchema = new Schema({
+const userSchema = new Schema({
   matrikelNr: { type: String, required: true, unique: true, index: true },
-  createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now },
   email: {type:String, required: true, unique: true},
   password: {type:String, required:true},
-  roles: [{type: String}]
+  roles: [{type: String}],
+  createdAt: { type: Date, 'default': Date.now },
+  updatedAt: { type: Date, 'default': Date.now }
 });
 
-const usersModel = mongoose.model('users', usersSchema);
+const userModel = mongoose.model('user', userSchema);
 
-module.exports = usersModel;
+module.exports = userModel;
