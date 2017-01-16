@@ -1,14 +1,15 @@
 'use strict';
 
 const globalHooks = require('../../../hooks');
-const hooks = require('feathers-hooks');
-const auth = require('feathers-authentication').hooks;
+const hooks = require('feathers-hooks-common');
+const authentication = require('feathers-authentication');
+const permissions = require('feathers-permissions');
 
 exports.before = {
   all: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated()
+    authentication.hooks.authenticate('jwt'),
+    permissions.hooks.checkPermissions({service: 'users', on: 'user', field: 'roles'}),
+    permissions.hooks.isPermitted()
   ],
   find: [],
   get: [],

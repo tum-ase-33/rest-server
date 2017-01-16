@@ -3,5 +3,8 @@
   "port": 3030,
   "mongodb": "mongodb://localhost:27017/restServer",
   "public": "../public/",
-  "corsWhitelist": []
+  "corsWhitelist": [],
+  "auth": {
+    "secret": "Super secret"
+  }
 }

@@ -13,6 +13,8 @@ const bodyParser = require('body-parser');
 
 const middleware = require('./middleware');
 const services = require('./services');
+const auth = require('feathers-authentication');
+const jwt = require('feathers-authentication-jwt');
 
 const app = feathers();
 
@@ -28,6 +30,7 @@ const corsOptions = {
 
 app.use(compress())
   .options('*', cors(corsOptions))
+
   .use(cors(corsOptions))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
