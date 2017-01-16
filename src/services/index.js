@@ -1,12 +1,11 @@
 'use strict';
 
-// const userLessonTokens = require('./user-lesson-tokens');
-
-// const lessons = require('./lessons');
+const userLessonTokens = require('./user-lesson-tokens');
+const lessons = require('./lessons');
 
 const users = require('./users');
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 module.exports = function() {
   const app = this;
@@ -15,6 +14,6 @@ module.exports = function() {
   mongoose.Promise = global.Promise;
 
   app.configure(users);
-  // app.configure(lessons);
-  // app.configure(userLessonTokens);
+  app.configure(lessons);
+  app.configure(userLessonTokens);
 };
