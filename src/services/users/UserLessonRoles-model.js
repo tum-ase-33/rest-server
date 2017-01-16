@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserLessonRolesSchema = new Schema({
-  roleId: { type: Schema.ObjectId, ref: 'lessons', required: true },
+  lessonId: { type: Schema.ObjectId, ref: 'lessons', required: true },
   userId: { type: Schema.ObjectId, ref: 'users', required: true },
   roles: [{
     type: String,
