@@ -17,6 +17,7 @@ const userSchema = new Schema({
   updatedAt: { type: Date, 'default': Date.now }
 });
 
+mongoose.set('debug', process.env.MONGOOSE_DEBUG);
 const userModel = mongoose.model('user', userSchema);
 
 module.exports = userModel;
