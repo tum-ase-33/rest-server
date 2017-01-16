@@ -8,7 +8,7 @@ module.exports = function() {
   const app = this;
 
   const options = {
-    Model: user-lesson-tokens,
+    Model: userLessonTokens,
     paginate: {
       default: 5,
       max: 25
@@ -22,8 +22,8 @@ module.exports = function() {
   const userLessonTokensService = app.service('/user-lesson-tokens');
 
   // Set up our before hooks
-  user-lesson-tokensService.before(hooks.before);
+  userLessonTokensService.before(hooks.before);
 
   // Set up our after hooks
-  user-lesson-tokensService.after(hooks.after);
+  userLessonTokensService.after(hooks.after);
 };
