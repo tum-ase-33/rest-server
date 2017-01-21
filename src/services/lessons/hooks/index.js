@@ -12,7 +12,12 @@ exports.before = {
   ],
   find: [
   ],
-  get: [],
+  get: [
+    auth.restrictToRoles({
+      roles: ['tutor'],
+      ownerField: 'roles'
+    }),
+  ],
   create: [],
   update: [],
   patch: [],
