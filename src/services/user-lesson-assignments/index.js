@@ -1,14 +1,14 @@
 'use strict';
 
 const service = require('feathers-mongoose');
-const userLessonTokens = require('./UserLessonTokens-model');
+const userLessonAssignments = require('./user-lesson-assignments-model');
 const hooks = require('./hooks');
 
 module.exports = function() {
   const app = this;
 
   const options = {
-    Model: userLessonTokens,
+    Model: userLessonAssignments,
     lean: true,
     paginate: {
       default: 5,
@@ -17,14 +17,14 @@ module.exports = function() {
   };
 
   // Initialize our service with any options it requires
-  app.use('/user-lesson-tokens', service(options));
+  app.use('/user-lesson-assignments', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const userLessonTokensService = app.service('/user-lesson-tokens');
+  const userLessonAssignmentsService = app.service('/user-lesson-assignments');
 
   // Set up our before hooks
-  userLessonTokensService.before(hooks.before);
+  userLessonAssignmentsService.before(hooks.before);
 
   // Set up our after hooks
-  userLessonTokensService.after(hooks.after);
+  userLessonAssignmentsService.after(hooks.after);
 };

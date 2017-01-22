@@ -1,4 +1,5 @@
 'use strict';
+const userLessonAssignments = require('./user-lesson-assignments');
 const authentication = require('./authentication');
 const user = require('./user');
 const userLessonTokens = require('./user-lesson-tokens');
@@ -14,4 +15,5 @@ module.exports = function() {
   app.configure(user);
   app.configure(lessons);
   app.configure(userLessonTokens);
+  app.configure(userLessonAssignments);
 };

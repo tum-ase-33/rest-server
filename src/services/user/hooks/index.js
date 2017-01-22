@@ -1,6 +1,7 @@
 'use strict';
 
 const globalHooks = require('../../../hooks');
+const commonHooks = require('feathers-hooks-common');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
@@ -15,7 +16,10 @@ exports.before = {
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    commonHooks.iff(
+      (hook) => hook.params.provider === 'rest',
+      auth.restrictToOwner({ ownerField: '_id' })
+    )
   ],
   create: [
     auth.hashPassword()
