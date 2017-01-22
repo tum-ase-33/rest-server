@@ -6,5 +6,8 @@
   "corsWhitelist": [],
   "auth": {
     "secret": "Super secret"
+  },
+  "cronjob": {
+    "token": "123456"
   }
 }

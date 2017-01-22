@@ -18,7 +18,9 @@ exports.before = {
     auth.restrictToAuthenticated(),
     commonHooks.iff(
       (hook) => hook.params.provider === 'rest',
-      auth.restrictToOwner({ ownerField: '_id' })
+      function (hook) {
+        return auth.restrictToOwner({ ownerField: '_id' }).call(this, hook);
+      }
     )
   ],
   create: [

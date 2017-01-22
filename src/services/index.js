@@ -11,6 +11,11 @@ module.exports = function() {
   mongoose.connect(app.get('mongodb'));
   mongoose.Promise = global.Promise;
 
+  app.use((req, res, next) => {
+    req.feathers.headers = req.headers;
+    next();
+  });
+
   app.configure(authentication);
   app.configure(user);
   app.configure(lessons);
