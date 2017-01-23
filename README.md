@@ -1,5 +1,9 @@
 # rest-server
 
+[![Code Climate](https://codeclimate.com/github/tum-ase-33/rest-server/badges/gpa.svg)](https://codeclimate.com/github/tum-ase-33/rest-server)
+[![Test Coverage](https://codeclimate.com/github/tum-ase-33/rest-server/badges/coverage.svg)](https://codeclimate.com/github/tum-ase-33/rest-server/coverage)
+[![Issue Count](https://codeclimate.com/github/tum-ase-33/rest-server/badges/issue_count.svg)](https://codeclimate.com/github/tum-ase-33/rest-server)
+
 > 
 
 ## About
