@@ -117,7 +117,6 @@ describe('use-cases', function () {
         //when finished
         .end((err, res) => {
           res.statusCode.should.be.equal(200);
-          console.log(res.body);
           res.body.should.have.property('total', 1);
           res.body.should.have.property('limit');
           res.body.should.have.property('skip');

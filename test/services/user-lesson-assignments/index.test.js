@@ -172,7 +172,6 @@ describe('user-lesson-assignments service', function () {
         .end((err, res) => {
           res.statusCode.should.be.equal(200);
           res.body.total.should.be.equal(2);
-          console.log(res.body.data[0]);
           res.body.data[0].should.have.deep.property('user._id');
           done();
         });
