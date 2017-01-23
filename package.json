@@ -16,10 +16,11 @@
     "node": ">= 0.12.0"
   },
   "scripts": {
-    "test": "npm run jshint && npm run mocha",
+    "test": "npm run jshint && npm run coverage",
     "jshint": "jshint src/. test/. --config",
     "start": "babel-node src/",
-    "mocha": "mocha test/ --compilers js:babel-core/register --recursive"
+    "mocha": "mocha --opts mocha.opts",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
