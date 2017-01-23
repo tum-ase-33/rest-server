@@ -28,11 +28,15 @@ exports.before = {
     hooks.disable('external'),
   ],
   create: [
-    populateRoles(),
+    function (hook) {
+      if (hook.params.provider === 'rest') {
+        return populateRoles().call(this, hook);
+      }
+    },
     hooks.remove('roles'),
     (hook) => {
       // only admins are allowed to choose custom lesson roles!
-      if (hook.params.lessonRoles.indexOf('admin') === -1) {
+      if (hook.params.provider === 'rest' && hook.params.lessonRoles.indexOf('admin') === -1) {
         hook.data.roles = ['student'];
       }
     }
@@ -44,11 +48,13 @@ exports.before = {
     hooks.disable('external'),
   ],
   remove: [
-    (hook) => populateRoles({ query: { _id: hook.params.id } })(hook),
-    function(hook) {
-      if (hook.params.lessonRoles.indexOf('admin') === -1) {
-        console.log('Check owner');
-        console.log(hook.params.user);
+    function (hook) {
+      if (hook.params.provider === 'rest') {
+        return populateRoles({ query: { _id: hook.params.id } }).call(this, hook);
+      }
+    },
+    function (hook) {
+      if (hook.params.provider === 'rest' && hook.params.lessonRoles.indexOf('admin') === -1) {
         return auth.restrictToOwner({ ownerField: 'userId' }).call(this, hook);
       }
     }
