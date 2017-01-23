@@ -1,7 +1,4 @@
 verbose: false
-instrumentation:
-  root: ./src/
-  include-all-sources: true
 reporting:
   print: summary
   reports:
