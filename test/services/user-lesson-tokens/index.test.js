@@ -22,7 +22,7 @@ chai.use(chaiHttp);
 //use should
 const should = chai.should();
 
-describe('user-lesson-tokens service', function() {
+describe('user-lesson-tokens service', function () {
   it('registered the user-lesson-tokens service', () => {
     assert.ok(app.service('user-lesson-tokens'));
   });
@@ -61,24 +61,35 @@ describe('user-lesson-tokens service', function() {
       });
   };
 
-  before(() => createUser()
-    .then(([createdUserId, createdUserToken, createdUser]) => {
-      token = createdUserToken;
-      userId = createdUserId;
-      user = createdUser;
-
-      return createUser();
+  before(() =>
+    new Promise(resolve => {
+      this.server = app.listen(3030);
+      //once listening do the following
+      this.server.once('listening', () => resolve());
     })
-    .then(([createdUserId, createdUserToken, createdUser]) => {
-      token2 = createdUserToken;
-      userId2 = createdUserId;
-      user2 = createdUser;
+      .then(() => createUser())
+      .then(([createdUserId, createdUserToken, createdUser]) => {
+        token = createdUserToken;
+        userId = createdUserId;
+        user = createdUser;
 
-      return Promise.resolve();
-    })
+        return createUser();
+      })
+      .then(([createdUserId, createdUserToken, createdUser]) => {
+        token2 = createdUserToken;
+        userId2 = createdUserId;
+        user2 = createdUser;
+
+        return Promise.resolve();
+      })
   );
 
-  after(() => User.remove(null, { user, token }));
+  after((done) => {
+    User.remove(null, { user, token })
+      .then(() => {
+        this.server.close(done);
+      });
+  });
 
   describe('list()', () => {
     it('Should restrict without cronjob token', (done) => {

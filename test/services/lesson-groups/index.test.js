@@ -31,7 +31,9 @@ describe('lesson-groups service', function () {
     this.server.once('listening', () => done());
   });
 
-  after('clear', () => this.server.close());
+  after('clear', (done) => {
+    this.server.close(done);
+  });
 
   it('registered the lesson-groups service', () => {
     assert.ok(app.service('lesson-groups'));
@@ -97,7 +99,7 @@ describe('lesson-groups service', function () {
     let lesson;
     before('create user and assign roles', () =>
       Lesson.create({
-        name: 'ASE'
+        name: 'ASE lesson-groups'
       })
         .then((createdLesson) => createUser(createdLesson._id, ['admin'])
           .then(([createdUserId, createdUserToken]) => {
@@ -173,7 +175,7 @@ describe('lesson-groups service', function () {
     let lesson;
     before('create user and assign roles', () =>
       Lesson.create({
-        name: 'ASE'
+        name: 'ASE lesson-groups'
       })
         .then((createdLesson) => createUser(createdLesson._id, ['admin'])
           .then(([createdUserId, createdUserToken]) => {
@@ -277,7 +279,7 @@ describe('lesson-groups service', function () {
     let lesson, lessonGroupId;
     before('create user and assign roles', () =>
       Lesson.create({
-        name: 'ASE'
+        name: 'ASE lesson-groups'
       })
         .then((createdLesson) => createUser(createdLesson._id, ['admin'])
           .then(([createdUserId, createdUserToken]) => {
@@ -302,12 +304,12 @@ describe('lesson-groups service', function () {
         })
     );
 
-    after('clear all entries', () =>
-      LessonGroups.remove(null)
+    after('clear all entries', () => {
+      return LessonGroups.remove(null)
         .then(() => LessonAssignment.remove(null))
         .then(() => Lesson.remove(null))
-        .then(() => User.remove(null))
-    );
+        .then(() => User.remove(null));
+    });
 
     it('Should be only accessible if logged in', (done) => {
       chai.request(app)

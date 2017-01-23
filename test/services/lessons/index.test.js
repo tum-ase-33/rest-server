@@ -23,7 +23,6 @@ const should = chai.should();
 describe('lessons service', function () {
   //setup
   before((done) => {
-    this.timeout = 8000;
     //start the server
     this.server = app.listen(3030);
     //once listening do the following
@@ -94,9 +93,7 @@ describe('lessons service', function () {
     Lesson.remove(null, () => {
       User.remove(null, () => {
         //stop the server
-        this.server.close(function () {
-        });
-        done();
+        this.server.close(done);
       });
     });
 

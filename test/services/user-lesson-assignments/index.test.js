@@ -23,7 +23,15 @@ chai.use(chaiHttp);
 const should = chai.should();
 
 describe('user-lesson-assignments service', function () {
-  this.timeout(5000);
+  before((done) => {
+    this.server = app.listen(3030);
+    //once listening do the following
+    this.server.once('listening', () => done());
+  });
+
+  after((done) => {
+    this.server.close(done);
+  });
 
   it('registered the user-lesson-assignments service', () => {
     assert.ok(userLessonAssignments);
@@ -88,15 +96,15 @@ describe('user-lesson-assignments service', function () {
 
   describe('list()', () => {
     //setup
-    before((done) => {
+    before(() => {
       //create some mock lessons
-      Lesson.create({
-        name: 'ASE'
+      return Lesson.create({
+        name: 'ASE user-lesson-assignments'
       })
         .then(lesson => {
           lessonId = lesson._id.toString();
           return Lesson.create({
-            name: 'ASE_2'
+            name: 'ASE_2 user-lesson-assignments'
           });
         })
         .then(lesson => {
@@ -131,19 +139,14 @@ describe('user-lesson-assignments service', function () {
         }, {
           token: token2,
           user: user2
-        }))
-        .then(() => done());
+        }));
     });
     //teardown after tests
-    after((done) => {
+    after(() => {
       //delete contents of menu in mongodb
-      Lesson.remove(null, () => {
-        userLessonAssignments.remove(null, () => {
-          User.remove(null, () => {
-            done();
-          });
-        });
-      });
+      return Lesson.remove(null)
+        .then(() => userLessonAssignments.remove(null))
+        .then(() => User.remove(null));
     });
 
     it('should be disabled if query param lesson does not exist', (done) => {
@@ -204,7 +207,7 @@ describe('user-lesson-assignments service', function () {
     //setup
     before((done) => {
       Lesson.create({
-        name: 'ASE'
+        name: 'ASE user-lesson-assignments'
       })
         .then(lesson => {
           lessonId = lesson._id.toString();
@@ -350,7 +353,7 @@ describe('user-lesson-assignments service', function () {
       }));
     after(
       () =>
-        userLessonAssignments.remove(null, { user, token })
+        userLessonAssignments.remove(null)
           .then(() => Lesson.remove(null))
           .then(() => User.remove(null))
     );
@@ -358,7 +361,7 @@ describe('user-lesson-assignments service', function () {
     describe('Should not remove', () => {
       it('Only admins and owners are allowed to remove', (done) => {
         Lesson.create({
-          name: 'ASE'
+          name: 'ASE user-lesson-assignments'
         })
           .then((lesson) => {
             lessonId = lesson._id;
@@ -405,7 +408,7 @@ describe('user-lesson-assignments service', function () {
 
       it('Should restrict for not authenticated users', (done) => {
         Lesson.create({
-          name: 'ASE'
+          name: 'ASE user-lesson-assignments'
         })
           .then((lesson) => {
             lessonId = lesson._id;
@@ -436,7 +439,7 @@ describe('user-lesson-assignments service', function () {
     describe('Should delete relation', () => {
       it('Owners should be able to delete their lesson relations', (done) => {
         Lesson.create({
-          name: 'ASE'
+          name: 'ASE user-lesson-assignments'
         })
           .then((lesson) => {
             lessonId = lesson._id;
@@ -466,7 +469,7 @@ describe('user-lesson-assignments service', function () {
 
       it('Admins should be able to delete lesson relations', (done) => {
         Lesson.create({
-          name: 'ASE'
+          name: 'ASE user-lesson-assignments'
         })
           .then((lesson) => {
             lessonId = lesson._id;

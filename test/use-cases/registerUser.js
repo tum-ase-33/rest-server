@@ -2,7 +2,7 @@
 
 
 const assert = require('assert');
-const app = require('../../../src/app');
+const app = require('../../src/app');
 const User = app.service('users');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -31,7 +31,11 @@ describe('use-cases: registerUser', function () {
     this.server.once('listening', () => done());
   });
 
-  after('clear', () => User.remove(null).then(() => this.server.close()));
+  after('clear', (done) => {
+    User.remove(null).then(() => {
+      this.server.close(done);
+    });
+  });
 
   it('process', () => {
     // #1 create new user
@@ -49,7 +53,7 @@ describe('use-cases: registerUser', function () {
         .end((err, res) => {
           res.statusCode.should.be.equal(201);
           res.body.should.have.property('_id');
-          res.body.should.not.have.property('matrikelNr');
+          res.body.should.have.property('matrikelNr');
           res.body.should.have.property('email', email);
           resolve();
         });
