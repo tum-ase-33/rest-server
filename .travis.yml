@@ -3,5 +3,10 @@ node_js:
   - "6"
   - "6.1"
   - "5.11"
+addons:
+  code_climate:
+    repo_token: <token>
+after_success:
+- npm run coveralls
 services:
   - mongodb
