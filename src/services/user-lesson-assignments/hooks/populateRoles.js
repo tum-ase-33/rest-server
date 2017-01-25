@@ -12,8 +12,8 @@ module.exports = (options = {}) => (hook) => {
       lessonId = hook.params.query.lessonId;
     } else if (hook.data && hook.data.lessonId) {
       lessonId = hook.data.lessonId;
-    } else if (hook.params.id) {
-      lessonId = hook.params.id;
+    } else if (hook.id) {
+      lessonId = hook.id;
     } else {
       return Promise.reject(new errors.BadRequest('Request has no param /:id or ?lessonId=:id'));
     }

@@ -4,11 +4,12 @@ const assert = require('assert');
 const app = require('../../../src/app');
 const User = app.service('users');
 const Lesson = app.service('lessons');
+const userLessonAssignments = app.service('user-lesson-assignments');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const bodyParser = require('body-parser');
 const authentication = require('feathers-authentication/client');
-let adminToken, tutorToken, lessonId, studentToken;
+let adminToken, tutorToken, lessonId, studentToken, studentUserId, adminUserId, tutorUserId;
 
 //config for app to do authentication
 app
@@ -38,10 +39,11 @@ describe('lessons service', function () {
             matrikelNr: '1234',
             email: 'dummy@in.tum.de',
             password: 'igzSwi7*Creif4V$',
-            roles: ['tutor', 'admin']
+            roles: ['tutor']
           });
         })
         .then(user => new Promise(resolve => {
+          tutorUserId = user._id;
           //setup a request to get authentication token
           chai.request(app)
           //request to /auth/local
@@ -67,6 +69,7 @@ describe('lessons service', function () {
           roles: ['admin']
         }))
         .then(student => new Promise(resolve => {
+          adminUserId = student._id;
           chai.request(app)
           //request to /auth/local
             .post('/auth/local')
@@ -91,6 +94,7 @@ describe('lessons service', function () {
           roles: ['student']
         }))
         .then(student => new Promise(resolve => {
+          studentUserId = student._id;
           chai.request(app)
           //request to /auth/local
             .post('/auth/local')
@@ -108,16 +112,32 @@ describe('lessons service', function () {
               resolve();
             });
         }))
+        .then(() => userLessonAssignments.create({
+          lessonId,
+          userId: adminUserId,
+          roles: ['admin']
+        }))
+        .then(() => userLessonAssignments.create({
+          lessonId,
+          userId: tutorUserId,
+          roles: ['tutor']
+        }))
+        .then(() => userLessonAssignments.create({
+          lessonId,
+          userId: studentUserId,
+          roles: ['student']
+        }))
         .then(() => done());
     });
   });
   //teardown after tests
   after((done) => {
-    //delete contents of menu in mongodb
-    Lesson.remove(null, () => {
-      User.remove(null, () => {
-        //stop the server
-        this.server.close(done);
+    userLessonAssignments.remove(null, () => {
+      Lesson.remove(null, () => {
+        User.remove(null, () => {
+          //stop the server
+          this.server.close(done);
+        });
       });
     });
 
@@ -176,6 +196,7 @@ describe('lessons service', function () {
         });
     });
 
+    /*
     it('should return 404 status code if lesson is not available', (done) => {
       const reversedLessonId = lessonId.split('').reverse().join('');
       chai.request(app)
@@ -187,6 +208,21 @@ describe('lessons service', function () {
         //when finished
         .end((err, res) => {
           res.statusCode.should.be.equal(404);
+          done();
+        });
+    });*/
+
+    it('should return 403 status code if lesson is not available because then user relation can not exist => operation forbidden!', (done) => {
+      const reversedLessonId = lessonId.split('').reverse().join('');
+      chai.request(app)
+      //request to /auth/local
+        .get(`/lessons/${reversedLessonId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(tutorToken))
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(403);
           done();
         });
     });
@@ -220,9 +256,6 @@ describe('lessons service', function () {
   });
 
   describe('create', () => {
-    before(() => Lesson.remove(null));
-    after(() => Lesson.remove(null));
-
     it('Should be only accessible for authenticated users', (done) => {
       chai.request(app)
       //request to /auth/local
@@ -252,7 +285,7 @@ describe('lessons service', function () {
 
     it('Should not be able to create a lesson with duplicated name', (done) => {
       const lessonData = {
-        name: 'ASE'
+        name: 'ASE_created'
       };
       chai.request(app)
       //request to /auth/local
@@ -264,6 +297,7 @@ describe('lessons service', function () {
         //when finished
         .end((err, res) => {
           res.statusCode.should.be.equal(201);
+          const createdLessonId = res.body._id;
 
           chai.request(app)
           //request to /auth/local
@@ -276,7 +310,7 @@ describe('lessons service', function () {
             .end((err, res) => {
               res.statusCode.should.be.equal(409);
               // clear all on success
-              Lesson.remove(null, () => done());
+              Lesson.remove(createdLessonId, () => done());
             });
         });
     });
@@ -295,7 +329,7 @@ describe('lessons service', function () {
           res.body.should.have.property('_id');
           res.body.should.have.property('name', 'ASE_admin');
 
-          Lesson.remove(null, () => done());
+          Lesson.remove(res.body._id, () => done());
         });
     });
   });
@@ -315,22 +349,38 @@ describe('lessons service', function () {
   });
 
   describe('patch()', () => {
-    let lessonId;
+    let toBeUpdatedLessonId;
     before((done) => {
       Lesson.create({
-        name: 'ASE'
+        name: 'ASE patch()'
       }).then(lesson => {
-        lessonId = lesson._id;
-        done();
-      });
+        toBeUpdatedLessonId = lesson._id;
+
+        return userLessonAssignments.create({
+          lessonId: toBeUpdatedLessonId,
+          userId: adminUserId,
+          roles: ['admin']
+        });
+      })
+        .then(() => userLessonAssignments.create({
+          lessonId: toBeUpdatedLessonId,
+          userId: tutorUserId,
+          roles: ['tutor']
+        }))
+        .then(() => userLessonAssignments.create({
+          lessonId: toBeUpdatedLessonId,
+          userId: studentUserId,
+          roles: ['student']
+        }))
+        .then(() => done());
     });
 
-    after(() => Lesson.remove(null));
+    after(() => userLessonAssignments.remove(null).then(() => Lesson.remove(null)));
 
     it('Should be only accessible for authenticated users', (done) => {
       chai.request(app)
       //request to /auth/local
-        .patch(`/lessons/${lessonId}`)
+        .patch(`/lessons/${toBeUpdatedLessonId}`)
         //set header
         .set('Accept', 'application/json')
         //when finished
@@ -343,7 +393,7 @@ describe('lessons service', function () {
     it('Only tutors or admins should be allowed to create lessons', (done) => {
       chai.request(app)
       //request to /auth/local
-        .patch(`/lessons/${lessonId}`)
+        .patch(`/lessons/${toBeUpdatedLessonId}`)
         //set header
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '.concat(studentToken))
@@ -357,16 +407,16 @@ describe('lessons service', function () {
     it('Should update correctly with unique name and tutor account', (done) => {
       chai.request(app)
       //request to /auth/local
-        .patch(`/lessons/${lessonId}`)
+        .patch(`/lessons/${toBeUpdatedLessonId}`)
         //set header
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '.concat(tutorToken))
-        .send({ name: 'ASE_new_with_tutor' })
+        .send({ name: 'ASE_patch() new_with_tutor' })
         //when finished
         .end((err, res) => {
           res.statusCode.should.be.equal(200);
-          res.body.should.have.property('_id', lessonId.toString());
-          res.body.should.have.property('name', 'ASE_new_with_tutor');
+          res.body.should.have.property('_id', toBeUpdatedLessonId.toString());
+          res.body.should.have.property('name', 'ASE_patch() new_with_tutor');
 
           done();
         });
@@ -375,16 +425,16 @@ describe('lessons service', function () {
     it('Should update correctly with unique name and admin account', (done) => {
       chai.request(app)
       //request to /auth/local
-        .patch(`/lessons/${lessonId}`)
+        .patch(`/lessons/${toBeUpdatedLessonId}`)
         //set header
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer '.concat(adminToken))
-        .send({ name: 'ASE_new_with_admin' })
+        .send({ name: 'ASE_patch() new_with_admin' })
         //when finished
         .end((err, res) => {
           res.statusCode.should.be.equal(200);
           res.body.should.have.property('_id');
-          res.body.should.have.property('name', 'ASE_new_with_admin');
+          res.body.should.have.property('name', 'ASE_patch() new_with_admin');
 
           done();
         });
@@ -404,4 +454,5 @@ describe('lessons service', function () {
         });
     });
   });
-});
+})
+;
