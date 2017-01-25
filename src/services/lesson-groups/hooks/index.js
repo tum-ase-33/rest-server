@@ -40,7 +40,22 @@ exports.before = {
     hooks.disable('external')
   ],
   patch: [
-    hooks.disable('external')
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated(),
+    commonHooks.iff(
+      (hook) => hook.params.provider === 'rest',
+      (hook) =>
+        hook.service.get(hook.id)
+          .then(lessonGroup =>
+            populateRoles({ query: { lessonId: lessonGroup.lessonId, userId: hook.params.user._id } })(hook)
+          ),
+      (hook) => {
+        if (hook.params.lessonRoles.indexOf('admin') === -1 && hook.params.lessonRoles.indexOf('tutor') === -1) {
+          throw new errors.Forbidden('You are not allowed to access this area. You have to be a tutor or an admin.');
+        }
+      }
+    )
   ],
   remove: [
     auth.verifyToken(),

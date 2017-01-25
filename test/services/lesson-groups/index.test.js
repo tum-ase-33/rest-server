@@ -248,14 +248,99 @@ describe('lesson-groups service', function () {
   });
 
   describe('patch()', () => {
-    it('Should be disabled', (done) => {
+    let lesson, lessonGroupId, tutorUserId, tutorToken;
+    before('create user and assign roles', () =>
+      Lesson.create({
+        name: 'ASE lesson-groups'
+      })
+        .then((createdLesson) => createUser(createdLesson._id, ['admin'])
+          .then(([createdUserId, createdUserToken]) => {
+            lesson = createdLesson;
+            adminUserId = createdUserId;
+            adminToken = createdUserToken;
+            return createUser(createdLesson._id, ['tutor']);
+          })
+          .then(([createdUserId, createdUserToken]) => {
+            tutorUserId = createdUserId;
+            tutorToken = createdUserToken;
+            return createUser(createdLesson._id, ['student']);
+          })
+          .then(([createdUserId, createdUserToken]) => {
+            studentUserId = createdUserId;
+            studentToken = createdUserToken;
+            return Promise.resolve();
+          })
+        )
+        .then(() => LessonGroups.create({
+          name: 'ASE group #1',
+          lessonId: lesson._id
+        }))
+        .then(() => LessonGroups.create({
+          name: 'ASE group #2',
+          lessonId: lesson._id
+        }))
+        .then(lessonGroup => {
+          lessonGroupId = lessonGroup._id;
+          return Promise.resolve();
+        })
+    );
+
+    after('clear all entries', () =>
+      LessonGroups.remove(null)
+        .then(() => LessonAssignment.remove(null))
+        .then(() => Lesson.remove(null))
+        .then(() => User.remove(null))
+    );
+
+    it('Should be only accessible if logged in', (done) => {
       chai.request(app)
-        .patch(`/lesson-groups/123456`)
+        .patch(`/lesson-groups/${lessonGroupId}`)
         //set header
         .set('Accept', 'application/json')
         //when finished
         .end((err, res) => {
-          res.statusCode.should.be.equal(405);
+          res.statusCode.should.be.equal(401);
+          done();
+        });
+    });
+
+    it('Should not be accessible for non admins and non tutors', (done) => {
+      chai.request(app)
+        .patch(`/lesson-groups/${lessonGroupId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(studentToken))
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(403);
+          done();
+        });
+    });
+
+    it('Should update a lesson group with an admin', (done) => {
+      chai.request(app)
+        .patch(`/lesson-groups/${lessonGroupId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(adminToken))
+        .send({ name: 'New ASE group' })
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(200);
+          done();
+        });
+    });
+
+    it('Should update a lesson group with an tutor', (done) => {
+      chai.request(app)
+        .patch(`/lesson-groups/${lessonGroupId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(tutorToken))
+        .send({ name: 'New ASE group' })
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(200);
           done();
         });
     });
