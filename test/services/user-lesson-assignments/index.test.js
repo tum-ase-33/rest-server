@@ -357,6 +357,10 @@ describe('user-lesson-assignments service', function () {
           .then(() => User.remove(null))
     );
 
+    afterEach((done) => {
+      Lesson.remove(null, userLessonAssignments.remove(null, () => done()));
+    });
+
     describe('Should not remove', () => {
       it('Only admins and owners are allowed to remove', (done) => {
         Lesson.create({

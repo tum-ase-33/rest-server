@@ -8,7 +8,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const bodyParser = require('body-parser');
 const authentication = require('feathers-authentication/client');
-let tutorToken, lessonId, studentToken;
+let adminToken, tutorToken, lessonId, studentToken;
 
 //config for app to do authentication
 app
@@ -38,7 +38,7 @@ describe('lessons service', function () {
             matrikelNr: '1234',
             email: 'dummy@in.tum.de',
             password: 'igzSwi7*Creif4V$',
-            roles: ['tutor']
+            roles: ['tutor', 'admin']
           });
         })
         .then(user => new Promise(resolve => {
@@ -57,6 +57,30 @@ describe('lessons service', function () {
             .end((err, res) => {
               //set token for auth in other requests
               tutorToken = res.body.token;
+              resolve();
+            });
+        }))
+        .then(() => User.create({
+          matrikelNr: '4545445',
+          email: 'dummy_admin@in.tum.de',
+          password: 'igzSwi7*Creif4V$',
+          roles: ['admin']
+        }))
+        .then(student => new Promise(resolve => {
+          chai.request(app)
+          //request to /auth/local
+            .post('/auth/local')
+            //set header
+            .set('Accept', 'application/json')
+            //send credentials
+            .send({
+              'email': 'dummy_admin@in.tum.de',
+              'password': 'igzSwi7*Creif4V$',
+            })
+            //when finished
+            .end((err, res) => {
+              //set token for auth in other requests
+              adminToken = res.body.token;
               resolve();
             });
         }))
@@ -190,6 +214,192 @@ describe('lessons service', function () {
         //when finished
         .end((err, res) => {
           res.statusCode.should.be.equal(403);
+          done();
+        });
+    });
+  });
+
+  describe('create', () => {
+    before(() => Lesson.remove(null));
+    after(() => Lesson.remove(null));
+
+    it('Should be only accessible for authenticated users', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .post(`/lessons`)
+        //set header
+        .set('Accept', 'application/json')
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(401);
+          done();
+        });
+    });
+
+    it('Only admins should be allowed to create lessons', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .post(`/lessons`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(studentToken))
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(403);
+          done();
+        });
+    });
+
+    it('Should not be able to create a lesson with duplicated name', (done) => {
+      const lessonData = {
+        name: 'ASE'
+      };
+      chai.request(app)
+      //request to /auth/local
+        .post(`/lessons`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(adminToken))
+        .send(lessonData)
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(201);
+
+          chai.request(app)
+          //request to /auth/local
+            .post(`/lessons`)
+            //set header
+            .set('Accept', 'application/json')
+            .set('Authorization', 'Bearer '.concat(adminToken))
+            .send(lessonData)
+            //when finished
+            .end((err, res) => {
+              res.statusCode.should.be.equal(409);
+              // clear all on success
+              Lesson.remove(null, () => done());
+            });
+        });
+    });
+
+    it('Should store correctly with unique name and admin account', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .post(`/lessons`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(adminToken))
+        .send({ name: 'ASE_admin' })
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(201);
+          res.body.should.have.property('_id');
+          res.body.should.have.property('name', 'ASE_admin');
+
+          Lesson.remove(null, () => done());
+        });
+    });
+  });
+
+  describe('put()', () => {
+    it('should be disabled', (done) => {
+      chai.request(app)
+        .put(`/lessons/1234567`)
+        //set header
+        .set('Accept', 'application/json')
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(405);
+          done();
+        });
+    });
+  });
+
+  describe('patch()', () => {
+    let lessonId;
+    before((done) => {
+      Lesson.create({
+        name: 'ASE'
+      }).then(lesson => {
+        lessonId = lesson._id;
+        done();
+      });
+    });
+
+    after(() => Lesson.remove(null));
+
+    it('Should be only accessible for authenticated users', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .patch(`/lessons/${lessonId}`)
+        //set header
+        .set('Accept', 'application/json')
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(401);
+          done();
+        });
+    });
+
+    it('Only tutors or admins should be allowed to create lessons', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .patch(`/lessons/${lessonId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(studentToken))
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(403);
+          done();
+        });
+    });
+
+    it('Should update correctly with unique name and tutor account', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .patch(`/lessons/${lessonId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(tutorToken))
+        .send({ name: 'ASE_new_with_tutor' })
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(200);
+          res.body.should.have.property('_id', lessonId.toString());
+          res.body.should.have.property('name', 'ASE_new_with_tutor');
+
+          done();
+        });
+    });
+
+    it('Should update correctly with unique name and admin account', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .patch(`/lessons/${lessonId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(adminToken))
+        .send({ name: 'ASE_new_with_admin' })
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(200);
+          res.body.should.have.property('_id');
+          res.body.should.have.property('name', 'ASE_new_with_admin');
+
+          done();
+        });
+    });
+  });
+
+  describe('delete()', () => {
+    it('should be disabled', (done) => {
+      chai.request(app)
+        .delete(`/lessons/1234567`)
+        //set header
+        .set('Accept', 'application/json')
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(405);
           done();
         });
     });

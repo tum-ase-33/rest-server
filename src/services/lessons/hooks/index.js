@@ -5,23 +5,45 @@ const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
 exports.before = {
-  all: [
+  all: [],
+  find: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated()
   ],
-  find: [
-  ],
   get: [
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated(),
     auth.restrictToRoles({
-      roles: ['tutor'],
+      roles: ['tutor', 'admin'],
       ownerField: 'roles'
     }),
   ],
-  create: [],
-  update: [],
-  patch: [],
-  remove: []
+  create: [
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated(),
+    auth.restrictToRoles({
+      roles: ['admin'],
+      ownerField: 'roles'
+    }),
+  ],
+  update: [
+    hooks.disable('external')
+  ],
+  patch: [
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated(),
+    auth.restrictToRoles({
+      roles: ['admin', 'tutor'],
+      ownerField: 'roles'
+    }),
+  ],
+  remove: [
+    hooks.disable('external')
+  ]
 };
 
 exports.after = {
