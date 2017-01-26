@@ -8,9 +8,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const DateTimestamp = Number;
 const lessonGroupsSchema = new Schema({
   name: { type: String, required: true },
-  dates: [Date],
+  dates: [DateTimestamp],
   lessonId: { type: Schema.ObjectId, ref: 'lessons', required: true },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }

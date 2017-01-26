@@ -19,6 +19,10 @@ const userLessonAssignmentSchema = new Schema({
     type: Schema.ObjectId,
     required: true
   },
+  lessonGroupId: {
+    ref: 'lesson_group',
+    type: Schema.ObjectId
+  },
   roles: [{
     type: String,
     enums: ['student', 'admin', 'tutor'],
@@ -28,7 +32,7 @@ const userLessonAssignmentSchema = new Schema({
   updatedAt: { type: Date, 'default': Date.now }
 });
 
-userLessonAssignmentSchema.index({ userId: 1, lessonId: 1 }, { unique: true });
+userLessonAssignmentSchema.index({ userId: 1, lessonId: 1, lessonGroupId: 1 }, { unique: true });
 
 const userLessonAssignmentModel = mongoose.model('user_lesson_assignments', userLessonAssignmentSchema);
 

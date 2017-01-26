@@ -16,7 +16,7 @@ const TagSchema = new Schema({
 });
 
 const UserLessonTokensSchema = new Schema({
-  salt: { type: String, required: true }, // salt for generating unique and safe tokens of _id attr
+  token: { type: String, required: true, unique: true },
   tags: [TagSchema], // tag information to this token, e.g. history
   lessonGroupId: {
     type: Schema.ObjectId,

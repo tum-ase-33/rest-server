@@ -99,7 +99,7 @@ describe('use-cases: createLessonGroupDates: ', function () {
   });
 
   it('#1 update lesson group dates', (done) => {
-    const dates = [new Date().toString()];
+    const dates = [new Date().getTime()];
     chai.request(app)
       .patch(`/lesson-groups/${lessonGroupId}`)
       //set header
@@ -112,7 +112,7 @@ describe('use-cases: createLessonGroupDates: ', function () {
         // dates successfully updated?
         res.body.should.have.property('dates');
         res.body.dates.should.have.length(1);
-        new Date(res.body.dates[0]).toString().should.be.equal(dates[0]);
+        res.body.dates[0].should.be.equal(dates[0]);
         done();
       });
   });
