@@ -1,5 +1,5 @@
 {
-  "name": "rest-server",
+  "name": "tum-attendance-checker-api",
   "description": "",
   "version": "0.0.0",
   "homepage": "",
@@ -20,7 +20,8 @@
     "jshint": "jshint src/. test/. --config",
     "start": "babel-node src/",
     "mocha": "mocha --opts mocha.opts",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
+    "deploy": "gcloud app deploy"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

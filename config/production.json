@@ -1,9 +1,11 @@
 {
-  "host": "rest-server-app.feathersjs.com",
-  "port": 80,
+  "host": "WEBSITE_URL",
+  "port": "PORT",
   "mongodb": "DATABASE_URL",
-  "public": "../public/",
   "cronjob": {
     "token": "TmSAEBKX3HDDtfkJQYaZUMgmJkgrLT8w6RVAhxpa6RDqX"
+  },
+  "scanner": {
+    "token": "TmSAEBKX3HDDtfkJQYaZUfdsSsdfetrdfSkgrLT8w6RVAhxpa6RDqX"
   }
 }
