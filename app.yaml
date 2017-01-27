@@ -1,2 +1,7 @@
 runtime: nodejs
 env: flex
+env_variables:
+  DATABASE_URL: mongodb://api:2nV7NkefV63rNs6g@ds131729.mlab.com:31729/tum-attendance-checker-api
+  WEBSITE_URL: https://tum-attendance-checker.appspot.com
+  CRONJOB_TOKEN: TmSAEBKX3HDDtfkJQYaZUMgmJkgrLT8w6RVAhxpa6RDqX
+  SCANNER_TOKEN: TmSAEBKX3HDDtfkJQYaZUfdsSsdfetrdfSkgrLT8w6RVAhxpa6RDqX

@@ -13,12 +13,12 @@
   "contributors": [],
   "bugs": {},
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 6.9.0"
   },
   "scripts": {
     "test": "npm run jshint && npm run coverage",
     "jshint": "jshint src/. test/. --config",
-    "start": "babel-node src/",
+    "start": "node src/",
     "mocha": "mocha --opts mocha.opts",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
     "deploy": "gcloud app deploy"

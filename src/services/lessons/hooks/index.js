@@ -4,7 +4,7 @@ const hooks = require('feathers-hooks');
 const commonHooks = require('feathers-hooks-common');
 const errors = require('feathers-errors');
 const auth = require('feathers-authentication').hooks;
-import populateLessonRoles from '../../user-lesson-assignments/hooks/populateRoles';
+const populateLessonRoles = require('../../user-lesson-assignments/hooks/populateRoles');
 
 exports.before = {
   all: [],

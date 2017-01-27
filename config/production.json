@@ -3,9 +3,9 @@
   "port": "PORT",
   "mongodb": "DATABASE_URL",
   "cronjob": {
-    "token": "TmSAEBKX3HDDtfkJQYaZUMgmJkgrLT8w6RVAhxpa6RDqX"
+    "token": "CRONJOB_TOKEN"
   },
   "scanner": {
-    "token": "TmSAEBKX3HDDtfkJQYaZUfdsSsdfetrdfSkgrLT8w6RVAhxpa6RDqX"
+    "token": "SCANNER_TOKEN"
   }
 }

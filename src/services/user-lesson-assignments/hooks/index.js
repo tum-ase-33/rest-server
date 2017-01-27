@@ -17,7 +17,9 @@ exports.before = {
       (hook) => hook.params.provider === 'rest',
       populateRoles(),
       (hook) => {
-        if (hook.params.lessonRoles.indexOf('admin') === -1 && hook.params.lessonRoles.indexOf('tutor') === -1) {
+        if (hook.params.user.roles.indexOf('cron') === -1 &&
+          hook.params.lessonRoles.indexOf('admin') === -1 &&
+          hook.params.lessonRoles.indexOf('tutor') === -1) {
           throw new errors.Forbidden('You are not allowed to access this area. You have to be a tutor or an admin.');
         }
       }
