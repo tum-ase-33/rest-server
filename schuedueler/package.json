@@ -1,0 +1,17 @@
+{
+  "name": "schuedueler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "node-qrcode": "0.0.4",
+    "node-ses": "^2.0.2",
+    "superagent": "^3.4.0"
+  }
+}

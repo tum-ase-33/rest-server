@@ -1,14 +1,16 @@
 var request = require('superagent');
 var Promise = require('bluebird');
 
+var url = 'https://tum-attendance-checker.appspot.com';
+
 function authenticate() {
   return new Promise(function(resolve) {
-    chai.request(app)
-      .post('/auth/local')
+    request
+      .post(url + '/auth/local')
       //set header
       .set('Accept', 'application/json')
       //send credentials
-      .send(require('common/schuedueler'))
+      .send(require('./data/schuedueler'))
       //when finished
       .end((err, res) => {
         resolve(res.body.token);
@@ -18,11 +20,12 @@ function authenticate() {
 
 function getLessons(token) {
   return new Promise(function(resolve) {
-    chai.request(app)
-      .get('/lessons')
+    request
+      .get(url + '/lessons')
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer '.concat(token))
       .end((err, res) => {
+        console.log(res);
         resolve(res.body.data);
       });
   });
@@ -30,33 +33,12 @@ function getLessons(token) {
 
 function getLessonGroups(token, lessonId) {
   return new Promise(function(resolve) {
-    chai.request(app)
-      .get('/lesson-groups?lessonId=' + lessonId)
+    request
+      .get(url + '/lesson-groups?lessonId=' + lessonId)
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer '.concat(token))
       .end((err, res) => {
         resolve(res.body.data);
-      });
-  });
-}
-
-function sendLessonToken(token, lessonId) {
-  return new Promise(function(resolve) {
-    chai.request(app)
-      .post(`/user-lesson-tokens`)
-      .set('X-CronJob-Token', app.get('cronjob').token) // get token from config
-      //set header
-      .set('Accept', 'application/json')
-      .send({
-        userId,
-        lessonGroupId
-      })
-      //when finished
-      .end((err, res) => {
-        res.statusCode.should.be.equal(201);
-        res.body.should.have.property('token');
-        // should find two lesson groups
-        resolve();
       });
   });
 }
@@ -65,8 +47,8 @@ const CRONJOB_TOKEN = 'TmSAEBKX3HDDtfkJQYaZUMgmJkgrLT8w6RVAhxpa6RDqX';
 
 function getLessonAssignments(token, lessonId) {
   return new Promise(function(resolve) {
-    chai.request(app)
-      .get(`/user-lesson-assignments?lessonId=` + lessonId)
+    request
+      .get(url + '/user-lesson-assignments?lessonId=' + lessonId)
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer '.concat(token))
       //when finished do the following
@@ -78,8 +60,8 @@ function getLessonAssignments(token, lessonId) {
 
 function createLessonGroupToken(userId, lessonGroupId) {
   return new Promise(function(resolve) {
-    chai.request(app)
-      .post(`/user-lesson-tokens`)
+    request
+      .post(url + '/user-lesson-tokens')
       .set('X-CronJob-Token', CRONJOB_TOKEN) // get token from config
       //set header
       .set('Accept', 'application/json')
@@ -134,6 +116,7 @@ exports.sendTokens = function sendTokens () {
     })
     .then(function(_lessons) {
       lessons = _lessons;
+      console.log(lessons);
 
       promises = [];
       for (var i = 0; i < lessons.length; i += 1) {
