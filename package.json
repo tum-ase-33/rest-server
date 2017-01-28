@@ -21,7 +21,8 @@
     "start": "node src/",
     "mocha": "mocha --opts mocha.opts",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
-    "deploy": "gcloud app deploy"
+    "deploy": "gcloud app deploy",
+    "seedDemo": "node ./scripts/seed.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

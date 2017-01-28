@@ -21,7 +21,17 @@ Getting up and running is as easy as 1, 2, 3.
     cd path/to/rest-server; npm install
     ```
 
-3. Start your app
+3. Optional: Install first demo entries (incl. admin user)
+
+    ```
+    npm run seedDemo
+    ```
+
+    After that you can sign in with:
+     - Email: superadmin@tum.de
+     - Passwort: sHJzslkZn4nmTum5ps9m45g&NMndtjdls
+
+4. Start your app
     
     ```
     npm start
