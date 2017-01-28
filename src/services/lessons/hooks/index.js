@@ -64,7 +64,24 @@ exports.after = {
   all: [],
   find: [],
   get: [],
-  create: [],
+  create: [
+    commonHooks.iff(
+      (hook) => hook.params.provider === 'rest',
+      (hook) => {
+        console.log(hook);
+        return hook.app.service('user-lesson-assignments').create({
+          userId: hook.params.user._id,
+          lessonId: hook.result._id,
+          roles: ['admin']
+        })
+          .then(() => Promise.resolve(hook))
+          .catch(error => {
+            console.error(error);
+            return Promise.reject(error);
+          });
+      }
+    )
+  ],
   update: [],
   patch: [],
   remove: []

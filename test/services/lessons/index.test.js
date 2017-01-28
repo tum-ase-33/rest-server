@@ -9,7 +9,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const bodyParser = require('body-parser');
 const authentication = require('feathers-authentication/client');
-let adminToken, tutorToken, lessonId, studentToken, studentUserId, adminUserId, tutorUserId;
+let adminToken, adminUser, tutorToken, lessonId, studentToken, studentUserId, adminUserId, tutorUserId;
 
 //config for app to do authentication
 app
@@ -68,8 +68,9 @@ describe('lessons service', function () {
           password: 'igzSwi7*Creif4V$',
           roles: ['admin']
         }))
-        .then(student => new Promise(resolve => {
-          adminUserId = student._id;
+        .then(admin => new Promise(resolve => {
+          adminUserId = admin._id;
+          adminUser = admin;
           chai.request(app)
           //request to /auth/local
             .post('/auth/local')
@@ -197,20 +198,20 @@ describe('lessons service', function () {
     });
 
     /*
-    it('should return 404 status code if lesson is not available', (done) => {
-      const reversedLessonId = lessonId.split('').reverse().join('');
-      chai.request(app)
-      //request to /auth/local
-        .get(`/lessons/${reversedLessonId}`)
-        //set header
-        .set('Accept', 'application/json')
-        .set('Authorization', 'Bearer '.concat(tutorToken))
-        //when finished
-        .end((err, res) => {
-          res.statusCode.should.be.equal(404);
-          done();
-        });
-    });*/
+     it('should return 404 status code if lesson is not available', (done) => {
+     const reversedLessonId = lessonId.split('').reverse().join('');
+     chai.request(app)
+     //request to /auth/local
+     .get(`/lessons/${reversedLessonId}`)
+     //set header
+     .set('Accept', 'application/json')
+     .set('Authorization', 'Bearer '.concat(tutorToken))
+     //when finished
+     .end((err, res) => {
+     res.statusCode.should.be.equal(404);
+     done();
+     });
+     });*/
 
     it('should return 403 status code if lesson is not available because then user relation can not exist => operation forbidden!', (done) => {
       const reversedLessonId = lessonId.split('').reverse().join('');
@@ -330,6 +331,35 @@ describe('lessons service', function () {
           res.body.should.have.property('name', 'ASE_admin');
 
           Lesson.remove(res.body._id, () => done());
+        });
+    });
+
+    it('Should set current user as admin for this lesson', (done) => {
+      chai.request(app)
+      //request to /auth/local
+        .post(`/lessons`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(adminToken))
+        .send({ name: 'ASE_lessonadmin' })
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(201);
+          userLessonAssignments.find({
+            query: {
+              lessonId: res.body._id,
+              userId: adminUserId
+            },
+            token: adminToken,
+            user: adminUser
+          })
+            .then(assignments => {
+              assignments.total.should.be.equal(1);
+              assignments.data[0].roles.should.contain('admin');
+
+              Lesson.remove(res.body._id, () => done());
+            })
+            .catch(done);
         });
     });
   });
