@@ -92,14 +92,53 @@ describe('user-lesson-tokens service', function () {
   });
 
   describe('list()', () => {
-    it('Should restrict without cronjob token', (done) => {
+    it('Should be only accessible for authenticated users', (done) => {
       chai.request(app)
         .get(`/user-lesson-tokens`)
         //set header
         .set('Accept', 'application/json')
         //when finished
         .end((err, res) => {
+          res.statusCode.should.be.equal(401);
+          done();
+        });
+    });
+
+    it('Should not be only possible to access tokens of other users', (done) => {
+      chai.request(app)
+        .get(`/user-lesson-tokens?userId=${userId2}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(token))
+        //when finished
+        .end((err, res) => {
           res.statusCode.should.be.equal(403);
+          done();
+        });
+    });
+
+    it('Should be possible to access own tokens', (done) => {
+      chai.request(app)
+        .get(`/user-lesson-tokens?userId=${userId}`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(token))
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(200);
+          done();
+        });
+    });
+
+    it('Should set own userid as default userId query parameter', (done) => {
+      chai.request(app)
+        .get(`/user-lesson-tokens`)
+        //set header
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer '.concat(token))
+        //when finished
+        .end((err, res) => {
+          res.statusCode.should.be.equal(200);
           done();
         });
     });

@@ -116,7 +116,6 @@ exports.sendTokens = function sendTokens () {
     })
     .then(function(_lessons) {
       lessons = _lessons;
-      console.log(lessons);
 
       promises = [];
       for (var i = 0; i < lessons.length; i += 1) {
