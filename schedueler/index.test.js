@@ -1,3 +1,3 @@
 const sendTokens = require('./').sendTokens;
 
-sendTokens();
+sendTokens(null, function() {});

@@ -106,7 +106,7 @@ function sendQRCode(email, token) {
  * @param {object} event The Cloud Functions event.
  * @param {function} The callback function.
  */
-exports.sendTokens = function sendTokens () {
+exports.sendTokens = function sendTokens (event, callback) {
   var token, lessons;
   var promises;
   authenticate()
@@ -145,6 +145,6 @@ exports.sendTokens = function sendTokens () {
         });
     })
     .then(function(lessonGroupTokens) {
-      // lets see whats next
+      callback();
     });
 };

@@ -6,8 +6,8 @@ const Lesson = app.service('lessons');
 const LessonGroup = app.service('lesson-groups');
 const LessonGroupToken = app.service('user-lesson-tokens');
 const UserAssignments = app.service('user-lesson-assignments');
-const superadminData = require('../schuedueler/data/superadmin');
-const schueduelerData = require('../schuedueler/data/schuedueler');
+const superadminData = require('../schedueler/data/superadmin');
+const schueduelerData = require('../schedueler/data/schuedueler');
 let superadminUserId, lessonGroupId, lessonId;
 User.create(superadminData)
   .then(user => {
